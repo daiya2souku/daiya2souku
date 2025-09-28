@@ -2593,7 +2593,7 @@ input, select, textarea {
 		justify-content: space-between;
 		background-color: #1f1815;
 		background-attachment: scroll,								scroll;
-		background-image: url("images/overlay.png"), url("https://res.cloudinary.com/do6s3ncq9/image/upload/v1759037563/bg.jpg");
+		background-image: url("images/overlay.png"), url("https://res.cloudinary.com/do6s3ncq9/image/upload/v1759040389/bg.jpg");
 		background-position: top left,							top left;
 		background-repeat: repeat,								no-repeat;
 		background-size: auto,								150%;
@@ -3078,7 +3078,7 @@ input, select, textarea {
 			#footer {
 				background-attachment: scroll;
 				background-color: #1f1815;
-				background-image: url("images/overlay.png"), url("https://res.cloudinary.com/do6s3ncq9/image/upload/v1759037563/bg.jpg");
+				background-image: url("images/overlay.png"), url("https://res.cloudinary.com/do6s3ncq9/image/upload/v1759040389/bg.jpg");
 				background-position: top left,						bottom center;
 				background-repeat: repeat,							no-repeat;
 				background-size: auto,							cover;
