@@ -3237,8 +3237,8 @@ input, select, textarea {
 	  }
 	  #TopView {
 		position: fixed;
-		top: 20px;
-		right: 265px;
+		bottom: 20px;
+		right: 20px;
 		background: #ffffff;
 		color: #696764;
 		padding: 10px 15px;
