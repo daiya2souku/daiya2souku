@@ -3235,3 +3235,18 @@ input, select, textarea {
 	  #backToTop:hover {
 		background: #ffffff;
 	  }
+	  #TopView {
+		position: fixed;
+		top: 20px;
+		right: 265px;
+		background: #ffffff;
+		color: #696764;
+		padding: 10px 15px;
+		border-radius: 8px;
+		text-decoration: none;
+		z-index: 1000;
+	  }
+	  
+	  #TopView:hover {
+		background: #ffffff;
+	  }
