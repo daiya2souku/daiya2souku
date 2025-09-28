@@ -3219,3 +3219,19 @@ input, select, textarea {
 			}
 
 	}
+	
+	#backToTop {
+		position: fixed;
+		bottom: 20px;
+		right: 20px;
+		background: #ffffff;
+		color: #696764;
+		padding: 10px 15px;
+		border-radius: 8px;
+		text-decoration: none;
+		z-index: 1000;
+	  }
+	  
+	  #backToTop:hover {
+		background: #ffffff;
+	  }

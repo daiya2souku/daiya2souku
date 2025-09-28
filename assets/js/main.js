@@ -155,3 +155,43 @@
 			});
 
 })(jQuery);
+
+// 平滑滾動（自訂速度）
+document.querySelectorAll(".scroll-btn").forEach(link => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    const targetId = link.getAttribute("data-target");
+    const speed = parseInt(link.getAttribute("data-speed"), 10) || 1000;
+
+    let targetPosition = 0; // 預設回頂部
+    if(targetId !== "top") {
+      const targetEl = document.getElementById(targetId);
+      if(targetEl) targetPosition = targetEl.getBoundingClientRect().top + window.scrollY;
+    }
+
+    smoothScrollTo(targetPosition, speed);
+  });
+});
+
+function smoothScrollTo(targetPosition, duration) {
+  const startPosition = window.scrollY;
+  const distance = targetPosition - startPosition;
+  let startTime = null;
+
+  function animation(currentTime) {
+    if(startTime === null) startTime = currentTime;
+    const timeElapsed = currentTime - startTime;
+    const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+    window.scrollTo(0, run);
+    if(timeElapsed < duration) requestAnimationFrame(animation);
+  }
+
+  function easeInOutQuad(t, b, c, d){
+    t /= d/2;
+    if(t < 1) return c/2*t*t + b;
+    t--;
+    return -c/2*(t*(t-2)-1) + b;
+  }
+
+  requestAnimationFrame(animation);
+}
