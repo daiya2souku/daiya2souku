@@ -152,6 +152,7 @@
 				});
 
 
+
 			});
 
 })(jQuery);
@@ -195,3 +196,56 @@ function smoothScrollTo(targetPosition, duration) {
 
   requestAnimationFrame(animation);
 }
+
+
+// 展開 / 收起 書籤
+const toggleBtn = document.getElementById("bookmarkToggle");
+const panel = document.getElementById("bookmarkPanel");
+
+toggleBtn.addEventListener("click", () => {
+  panel.classList.toggle("show");
+});
+
+// 平滑滾動函數
+function smoothScrollTo(targetPosition, duration) {
+  const startPosition = window.scrollY;
+  const distance = targetPosition - startPosition;
+  let startTime = null;
+
+  function animation(currentTime) {
+    if (startTime === null) startTime = currentTime;
+    const timeElapsed = currentTime - startTime;
+    const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+    window.scrollTo(0, run);
+    if (timeElapsed < duration) requestAnimationFrame(animation);
+  }
+
+  function easeInOutQuad(t, b, c, d) {
+    t /= d/2;
+    if (t < 1) return c/2*t*t + b;
+    t--;
+    return -c/2*(t*(t-2)-1) + b;
+  }
+
+  requestAnimationFrame(animation);
+}
+
+// 綁定書籤連結
+document.querySelectorAll(".scroll-btn").forEach(link => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    const targetId = link.getAttribute("data-target");
+    const speed = parseInt(link.getAttribute("data-speed"), 10) || 1000;
+
+    let targetPosition = 0;
+    if (targetId !== "top") {
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) targetPosition = targetEl.getBoundingClientRect().top + window.scrollY;
+    }
+
+    smoothScrollTo(targetPosition, speed);
+    panel.classList.remove("show"); // 點了收回
+  });
+});
+
+  
