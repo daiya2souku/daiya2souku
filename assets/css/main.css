@@ -3250,3 +3250,91 @@ input, select, textarea {
 	  #TopView:hover {
 		background: #ffffff;
 	  }
+
+	  
+	  /* 書籤面板 */
+	  #bookmarkPanel {
+		position: fixed;
+		top: 0;
+		left: -200px; /* 預設隱藏在左邊 */
+		width: 150px;
+		height: 100%;
+		background: #696764;
+		padding: 20px;
+		box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		transition: left 0.3s ease; /* 平滑展開 */
+		z-index: 1000;
+	  }
+	  
+	  #bookmarkPanel.show {
+		left: 0;
+	  }
+	  
+	  #bookmarkPanel a {
+		color: white;
+		text-decoration: none;
+		padding: 10px;
+		background: #a7a7a7;
+		border-radius: 5px;
+	  }
+	  
+	  #bookmarkPanel a:hover {
+		background: #888;
+	  }
+	
+
+	  /* 書籤面板 */
+#bookmarkPanel {
+	position: fixed;
+	top: 0;
+	left: -170px; /* 預設藏在左邊，只露出按鈕 */
+	width: 170px;
+	height: 100%;
+	background: #444;
+	transition: left 0.3s ease;
+	z-index: 1000;
+  }
+  
+  /* 展開狀態 */
+  #bookmarkPanel.show {
+	left: 0;
+  }
+  
+  /* 書籤按鈕 */
+  #bookmarkToggle {
+	position: absolute;
+	top: 50%;
+	right: -40px; /* 掛在面板外面 */
+	
+	transform: translateY(-50%);
+	background: #444;
+	color: white;
+	padding: 10px 15px;
+	border-radius: 0 8px 8px 0;
+	cursor: pointer;
+  }
+  
+  /* 書籤連結 */
+  .bookmark-links {
+	margin-top: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	padding: 5px;
+  }
+  
+  .bookmark-links a {
+	color: white;
+	text-decoration: none;
+	padding: 10px;
+	background: #666;
+	border-radius: 5px;
+  }
+  
+  .bookmark-links a:hover {
+	background: #888;
+  }
+
